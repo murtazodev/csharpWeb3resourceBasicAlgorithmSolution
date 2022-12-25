@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.Tracing;
+using System.Dynamic;
+using System.Runtime.InteropServices;
+using System.Threading;
+
+
+namespace BroCodef
+{
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+            String word = "Yuramendinland";
+            Console.Write("enter i: ");
+            int index = Convert.ToInt32(Console.ReadLine());    
+            Console.WriteLine("Result: " + letter_remover(word, index));
+
+            Console.ReadLine();
+
+        }
+        public static string letter_remover(string word, int index)
+        {
+            return word.Remove(index, 1);
+        }
+
+    }
+
+}

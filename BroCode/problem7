@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.Tracing;
+using System.Dynamic;
+using System.Runtime.InteropServices;
+using System.Threading;
+
+
+namespace BroCodef
+{
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+            String word = "Python";
+            Console.WriteLine("Result: " + letter_remover(word));
+            // duramendinlandY
+            word = "ytade";
+            Console.WriteLine("Result: " + letter_remover(word));
+
+            word = "jseus";
+            Console.WriteLine("Result: " + letter_remover(word));
+
+            Console.ReadLine();
+
+        }
+        public static string letter_remover(string word)
+        {
+            if (word.Substring(1, 3).Contains("yt"))
+                return word.Remove(1, 2);
+            else return word;
+        }
+
+    }
+
+}

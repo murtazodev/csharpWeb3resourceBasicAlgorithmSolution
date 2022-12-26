@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics.Tracing;
+using System.Dynamic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Threading;
+
+
+namespace BroCodef
+{
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+            int[] intArray = {1, 2, -3, -4, -5};
+            for (int i = 0; i < intArray.Length / 2; i++)
+            {
+                int tmp = intArray[i];
+                intArray[i] = intArray[intArray.Length - i - 1];
+                intArray[intArray.Length - i - 1] = tmp;
+            }
+            for (int i = 0; i < intArray.Length; i++)
+            {
+                Console.Write(intArray[i] + " ");
+            }
+            Console.WriteLine();
+
+            Console.ReadLine();
+
+        }
+
+    }
+
+}

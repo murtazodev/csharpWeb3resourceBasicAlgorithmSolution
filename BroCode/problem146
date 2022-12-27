@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics.Tracing;
+using System.Dynamic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Threading;
+
+
+namespace BroCode
+{
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+            int[] intArray = { 10, 22, 35, 41 };
+
+            int[] result = nomi(intArray);
+
+            foreach(int value in result)
+            {
+                Console.Write(value + " ");
+            }
+
+            Console.WriteLine();
+
+            Console.ReadLine();
+
+        }
+
+        public static int[] nomi(int[] array)
+        {
+            int[] newIntArr  = new int[array.Length];
+            int k = 0;
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                newIntArr[k++] = array[i] % 10;
+            }
+
+            return newIntArr;
+
+        }
+    }
+}

@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics.Tracing;
+using System.Dynamic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Threading;
+
+
+namespace BroCode
+{
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+            String[] stringArray = { "abc", "cdaef", "js", "php" };
+
+            String[] result = nomi(stringArray);
+
+            foreach(String value in result)
+            {
+                Console.Write(value + " ");
+            }
+
+            Console.WriteLine();
+           
+            Console.ReadLine();
+
+        }
+
+        public static String[] nomi(String[] array)
+        {
+            String[] newStringArr  = new String[array.Length];
+            int k = 0;
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                String temp = "";
+                if (array[i].Contains("a"))
+                {
+                    temp = array[i].Replace("a", "");
+                }
+                else temp = array[i];
+                newStringArr[k++] = temp;
+            }
+
+            return newStringArr;
+
+        }
+    }
+}

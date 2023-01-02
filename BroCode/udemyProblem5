@@ -1,0 +1,45 @@
+/*
+ Write a program and ask the user to supply a list of comma separated numbers (e.g 5, 1, 9, 2, 10). 
+ If the list is empty or includes less than 5 numbers, display "Invalid List" and ask the user to re-try; 
+ otherwise, display the 3 smallest numbers in the list. */
+
+using System.Collections.Generic;
+using System;
+using System.Linq;
+using System.Diagnostics.Tracing;
+
+namespace BroCode
+{
+
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+            string user_input = "";
+            //string[] nums = new string[] { };
+            while (true)
+            {
+                Console.WriteLine("Enter a numbers with comme preceded: ");
+                user_input = Console.ReadLine();
+                string[] nums = user_input.Split(',');
+
+                if (nums.Length < 5 || nums.Length == 0)
+                {
+                    Console.WriteLine("Invalid List");
+                    continue;
+                }
+                List<int> ints = nums.Select(x => int.Parse(x)).ToList();
+                ints.Sort();
+
+                Console.WriteLine($"{ints[0]}, {ints[1]}, {ints[2]}");
+                break;
+            }
+
+            Console.ReadLine();
+
+
+
+        }
+    }
+}

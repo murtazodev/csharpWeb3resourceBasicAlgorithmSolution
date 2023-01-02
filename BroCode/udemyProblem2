@@ -1,0 +1,28 @@
+/* Write a program and ask the user to enter their name.
+Use an array to reverse the name and then store the result in a new string. 
+Display the reversed name on the console. */
+
+
+using System.Collections.Generic;
+using System;
+
+namespace BroCode
+{
+
+    class Program
+    {
+            string name = Console.ReadLine();
+            var nameChar = name.ToCharArray();
+            Array.Reverse(nameChar);
+
+            string newName = String.Join("", nameChar);
+            
+            //2nd version of converting char Array into String
+            //string newName = new string(nameArray);
+
+            Console.WriteLine(newName);
+            
+
+            
+    }
+}

@@ -1,0 +1,44 @@
+/*Write a program and ask the user to continuously enter a number or type "Quit" to exit. 
+The list of numbers may include duplicates. 
+Display the unique numbers that the user has entered. */
+
+
+using System.Collections.Generic;
+using System;
+using System.Linq;
+using System.Diagnostics.Tracing;
+
+namespace BroCode
+{
+
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+            var intNum = new List<int>();
+
+            string user_input = "";
+            while (true)
+            {
+                Console.Write("Enter a number: ");
+                user_input = Console.ReadLine();
+                if (user_input.ToLower() == "quit")
+                    break;
+                else
+                {
+                    intNum.Add(int.Parse(user_input));
+                }
+            }
+
+            var intNumDistinct = intNum.Distinct();
+
+            foreach (var element in intNumDistinct)
+            {
+                Console.WriteLine(element);
+            }
+            Console.ReadLine();
+
+        }
+    }
+}

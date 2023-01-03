@@ -1,0 +1,52 @@
+/*
+ Write a program and ask the user to enter a few numbers separated by a hyphen. 
+ If the user simply presses Enter, without supplying an input, exit immediately; otherwise, check to see if there are duplicates. 
+ If so, display "Duplicate" on the console.
+*/
+
+
+using System.Collections.Generic;
+using System;
+using System.Linq;
+using System.Diagnostics.Tracing;
+
+
+
+namespace BroCode
+{
+
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Please enter numbers with hyphen: ");
+            string stringHyphen = Console.ReadLine();
+
+            if (String.IsNullOrEmpty(stringHyphen))
+                Console.WriteLine("Processed ended");
+            else
+            {
+                string[] nums = stringHyphen.Split('-');
+                int[] intNums = nums.Select(x => int.Parse(x)).ToArray();
+                var duplicates = new List<int>();
+                for (int i = 0; i < intNums.Length - 1; i++)
+                {
+                    for (int j = i + 1; j < intNums.Length; j++)
+                    {
+                        if (intNums[i] == intNums[j])
+                            duplicates.Add(intNums[i]);
+                    }
+
+                }
+                for (int i = 0; i < duplicates.Count; i++)
+                {
+                    Console.WriteLine(duplicates[i]);
+                }
+            }
+
+            Console.ReadLine();
+
+        }
+    }
+}

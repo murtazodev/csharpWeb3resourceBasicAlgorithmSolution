@@ -1,0 +1,53 @@
+/*
+Write a program and ask the user to enter a few numbers separated by a hyphen. 
+Work out if the numbers are consecutive. 
+For example, if the input is "5-6-7-8-9" or "20-19-18-17-16", display a message: "Consecutive"; 
+otherwise, display "Not Consecutive".
+*/
+
+using System.Collections.Generic;
+using System;
+using System.Linq;
+using System.Diagnostics.Tracing;
+
+
+
+namespace BroCode
+{
+
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+            string stringHyphen = "5-6-7-8-9";
+
+            //splitting '-' and assigning to another string array
+            string[] nums = stringHyphen.Split('-');
+            
+            // selecting each element of string array and assigning to new char array
+            int[] numInt = nums.Select(x => int.Parse(x)).ToArray();
+
+            // checking if consecutive
+            bool isConsecutive = false;
+
+            for (int k = 0; k < numInt.Length - 1; k++)
+            {
+                if (numInt[k] < numInt[k + 1])
+                {
+                    isConsecutive = true;
+                }
+                else
+                    break;
+            }
+
+            if(isConsecutive)
+                Console.WriteLine("Consecutive");
+            else
+                Console.WriteLine("Not Consecutive"); 
+
+            Console.ReadLine();
+
+        }
+    }
+}
